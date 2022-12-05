@@ -1,0 +1,73 @@
+package com.mycompany.prova2alg;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Pedro Henrique Alves Pedrasani
+ */
+public class MedidorTemp{
+    
+    public static int periodo(){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Quantos dias serao analisados: ");
+        int dias = entrada.nextInt();
+        return dias;        
+    }
+    
+    public static int[] temperaturas(int dias){
+        int[] vetor = new int[dias];
+        return vetor;
+    }
+    
+     public static int[] coletarTemp(int[] temp){
+        Scanner entrada = new Scanner(System.in);
+         System.out.println("\n");
+        for(int i=0; i < temp.length; i++){
+            System.out.println("Digite as temperaturas: ");
+            temp[i] = entrada.nextInt();
+        }
+        return temp;
+    }
+     
+    public static void maiorMenor(int[] temp){
+        int comparador = 0;
+        int comparador1 = 0;
+        int comparador2 = 0;
+        for(int i=0; i < temp.length; i++){
+            comparador = temp[i];
+            if(comparador1 < comparador){
+                comparador1 = comparador;
+            }if(comparador2 > comparador){
+                comparador2 = comparador;
+                    }           
+        }   System.out.println("\nmaior numero: " + comparador1);
+            System.out.println("menor numero: " + comparador2 + "\n");
+    }
+    
+    public static void tempNegativas(int[] temp){
+        for(int i=0; i<temp.length; i++){
+            if(temp[i] < 0){
+                System.out.println("temperaturas negativas: " + temp[i]);
+            }
+        }
+    }
+    
+    public static void mediaTemp(int[] temp){
+        double soma = 0;
+        for(int i=0; i<temp.length; i++){
+            soma = soma + temp[i];
+        }
+        double media = (soma/temp.length);
+        System.out.println("\nMedia: " + media);
+    }
+    
+    public static void main(String[] args) {
+        int dias = periodo();
+        int[] temp = temperaturas(dias);
+        temp = coletarTemp(temp);  
+        maiorMenor(temp);
+        tempNegativas(temp);
+        mediaTemp(temp);
+    }
+}
